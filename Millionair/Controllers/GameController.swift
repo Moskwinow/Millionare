@@ -22,16 +22,16 @@ class GameController: UIViewController  {
     
     var difficulty: Difficulty = .serial
     
-    var randomQuestionsArray: [Question] = QuestionsBase.data()
+    var randomQuestionsArray: [Question] = []
     var strategy: CreateStrategyProtocol!
     let buttonCornerRadius: CGFloat = 50
     var correctAnswers: Int = 0
     var correctAnswersHandler: ((Int) -> Void)?
     var percent = 0
     var facade: DifficultyFacade!
-//    var arrayOfQuestions: [Question] = QuestionsBase.data()
+    var arrayOfQuestions: [Question] = QuestionsBase.data()
     
-
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +39,8 @@ class GameController: UIViewController  {
         answerTwo.layer.cornerRadius = buttonCornerRadius
         answerThree.layer.cornerRadius = buttonCornerRadius
         answerFour.layer.cornerRadius = buttonCornerRadius
-//        arrayOfQuestions = strategy.createQuestions(arrayOfQuestions)
         facade = DifficultyFacade(difficulty: difficulty)
-        facade.getaArray(randomQuestionsArray)
+        facade.getaArray(strategy.createQuestions(arrayOfQuestions))
         changeQuestion()
     }
     

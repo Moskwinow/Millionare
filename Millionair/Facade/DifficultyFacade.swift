@@ -9,12 +9,14 @@
 import Foundation
 
 final class DifficultyFacade {
+    
+    
     let difficulty: Difficulty
     
     fileprivate var array: [Question] = []
-    var strategy: CreateStrategyProtocol!
     
     private var  createStrategy: CreateStrategyProtocol {
+        
         switch self.difficulty {
         case .random:
 
@@ -30,9 +32,11 @@ final class DifficultyFacade {
     }
     
     func getaArray(_ qstArray: [Question]) {
+        array = qstArray
     }
     
     func setGame() -> [Question] {
+        
         return array
     }
     
