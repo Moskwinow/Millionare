@@ -88,12 +88,13 @@ class GameController: UIViewController  {
     }
   
     private func saveAndExit() {
+        resultPercent.removeObserver(self)
         
         guard self.correctAnswers > 0 else {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        
+    
         let record = GameSession (date: Date(), score: correctAnswers, percent: Int(percent))
         Game.shared.addRecord(record)
         self.correctAnswersHandler?(self.correctAnswers)
