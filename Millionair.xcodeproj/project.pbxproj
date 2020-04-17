@@ -20,6 +20,7 @@
 		B42118AB235DBB67006C276F /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42118AA235DBB67006C276F /* GameSession.swift */; };
 		B42118B2235DC6E4006C276F /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42118B1235DC6E4006C276F /* RecordCell.swift */; };
 		D4C773EB244A272700C9AEC2 /* CreateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */; };
+		D4C773EE244A441D00C9AEC2 /* DifficultyFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773ED244A441D00C9AEC2 /* DifficultyFacade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B42118AA235DBB67006C276F /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		B42118B1235DC6E4006C276F /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 		D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStrategy.swift; sourceTree = "<group>"; };
+		D4C773ED244A441D00C9AEC2 /* DifficultyFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyFacade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		B421188D235C841A006C276F /* Millionair */ = {
 			isa = PBXGroup;
 			children = (
+				D4C773EC244A437000C9AEC2 /* Facade */,
 				D4C773E9244A24BF00C9AEC2 /* Strategy */,
 				B421188E235C841A006C276F /* AppDelegate.swift */,
 				B40EFBAB235DD2C3001A10A0 /* RecordProvider.swift */,
@@ -118,6 +121,14 @@
 				D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */,
 			);
 			path = Strategy;
+			sourceTree = "<group>";
+		};
+		D4C773EC244A437000C9AEC2 /* Facade */ = {
+			isa = PBXGroup;
+			children = (
+				D4C773ED244A441D00C9AEC2 /* DifficultyFacade.swift */,
+			);
+			path = Facade;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				B42118A3235C8F34006C276F /* GameController.swift in Sources */,
 				B421188F235C841A006C276F /* AppDelegate.swift in Sources */,
 				B40EFBAC235DD2C3001A10A0 /* RecordProvider.swift in Sources */,
+				D4C773EE244A441D00C9AEC2 /* DifficultyFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
