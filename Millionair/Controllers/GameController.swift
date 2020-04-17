@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class GameController: UIViewController {
     
     @IBOutlet var question: UILabel!
@@ -16,26 +18,28 @@ class GameController: UIViewController {
     @IBOutlet var answerThree: UIButton!
     @IBOutlet var answerFour: UIButton!
     
-   
+    var difficulty: Difficulty = .serial
+    
+    var randomQuestionsArray: [Question] = []
     
     let buttonCornerRadius: CGFloat = 50
     var correctAnswers: Int = 0
     var correctAnswersHandler: ((Int) -> Void)?
-    var  percent = 0
-    var arrayOfQuestions = [
-        Question(question: "На каком инструменте, как считается, играл древнерусский певец и сказитель Боян?", correctAnswer: "На гуслях", answers: ["На виолончели", "На баяне", "На гитаре", "На гуслях"]),
-        Question(question: "В какой из этих стран один из официальных языков - французский?", correctAnswer: "Республика Гаити", answers: ["Кения", "Эквадор", "Венесуэла", "Республика Гаити"]),
-        Question(question: "В каком из этих фильмов не снимался Александр Абдулов?", correctAnswer: "\"Московские каникулы\"", answers: ["\"Карнавал\"", "\"Чародеи\"", "\"Убить дракона\"","\"Московские каникулы\""]),
-        Question(question: "В каком году произошла Куликовская битва?", correctAnswer: "1380", answers: ["1380", "1569", "1616", "1773"] ),
-        Question(question: "Кто автор музыки к детской песенке Чунга-Чанга?", correctAnswer: "Шаинский", answers: ["Шаинский", "Зацепин", "Дербенёв", "Шпиц"]),
-        Question(question: "Какая картина Малевича находится в Русском музее?", correctAnswer: "Красный квадрат", answers: ["Красный квадрат", "Белый квадрат", "Чёрный квадрат", "\"Точильщик\""]),
-        Question(question: "Шкала Сковилла - это шкала оценки...", correctAnswer: "Остроты перца", answers: ["Остроты перца", "Привлекательности женщин", "Качества атмосферного воздуха", "Уровня моря"]),
-        Question(question: "Какой титул имел Дон Кихот?", correctAnswer: "Идальго", answers: ["Идальго", "Барон", "Маркиз", "Вождь"]),
-        Question(question: "Кто автор антиутопического романа \"О дивный новый мир\"?", correctAnswer: "Олдос Хаксли", answers: ["Олдос Хаксли", "Джордж Оруэлл", "Рэй Брэдбери", "Сомерсет Моэм"]),
-        Question(question: "Как называется самая глубокая точка поверхности Земли, находящаяся на дне Марианской впадины?", correctAnswer: "Бездна Челленджера", answers: ["Бездна Челленджера", "Филиппинская плита", "Кермадек", "Черное Логово"])
-    ]
+    var percent = 0
     
+    var arrayOfQuestions: [Question] = QuestionsBase.data()
     
+    private var  createStrategy: CreateStrategyProtocol {
+        switch self.difficulty {
+        case .random:
+            
+            return CreateRandomStrategy()
+        case .serial:
+            return SerialCreateStrategy()
+        
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         answerOne.layer.cornerRadius = buttonCornerRadius
@@ -43,11 +47,7 @@ class GameController: UIViewController {
         answerThree.layer.cornerRadius = buttonCornerRadius
         answerFour.layer.cornerRadius = buttonCornerRadius
         changeQuestion()
-        
-       
     }
-    
-    
     
     @IBAction func checkAnswer(sender: UIButton) {
 
@@ -75,14 +75,19 @@ class GameController: UIViewController {
     
     
     private func changeQuestion() {
+        randomQuestionsArray = createStrategy.createQuestions(arrayOfQuestions)
         
-        guard let qst = arrayOfQuestions.randomElement() else {self.saveAndExit(); return}
-        self.question.text = qst.question
-        let answers = qst.answers.shuffled()
+        let qst = randomQuestionsArray
+        self.question.text = qst[0].question
+        if !randomQuestionsArray.isEmpty {
+        let answers = qst[0].answers.shuffled()
         answerOne.setTitle(answers[0], for: .normal)
         answerTwo.setTitle(answers[1], for: .normal)
         answerThree.setTitle(answers[2], for: .normal)
         answerFour.setTitle(answers[3], for: .normal)
+        }
+        
+        
     }
     
     
