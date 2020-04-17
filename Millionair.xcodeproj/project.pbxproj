@@ -19,6 +19,7 @@
 		B42118A9235DBB43006C276F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42118A8235DBB43006C276F /* Game.swift */; };
 		B42118AB235DBB67006C276F /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42118AA235DBB67006C276F /* GameSession.swift */; };
 		B42118B2235DC6E4006C276F /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42118B1235DC6E4006C276F /* RecordCell.swift */; };
+		D4C773EB244A272700C9AEC2 /* CreateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B42118A8235DBB43006C276F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B42118AA235DBB67006C276F /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		B42118B1235DC6E4006C276F /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStrategy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		B421188D235C841A006C276F /* Millionair */ = {
 			isa = PBXGroup;
 			children = (
+				D4C773E9244A24BF00C9AEC2 /* Strategy */,
 				B421188E235C841A006C276F /* AppDelegate.swift */,
 				B40EFBAB235DD2C3001A10A0 /* RecordProvider.swift */,
 				B42118AD235DBE12006C276F /* Controllers */,
@@ -107,6 +110,14 @@
 				B42118B1235DC6E4006C276F /* RecordCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D4C773E9244A24BF00C9AEC2 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */,
+			);
+			path = Strategy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 			files = (
 				B42118A7235CBFDE006C276F /* Question.swift in Sources */,
 				B42118A9235DBB43006C276F /* Game.swift in Sources */,
+				D4C773EB244A272700C9AEC2 /* CreateStrategy.swift in Sources */,
 				B42118B2235DC6E4006C276F /* RecordCell.swift in Sources */,
 				B42118A5235C94B3006C276F /* ResultsController.swift in Sources */,
 				B4211891235C841A006C276F /* MainController.swift in Sources */,

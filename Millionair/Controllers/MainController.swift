@@ -8,14 +8,20 @@
 
 import UIKit
 
+enum Difficulty {
+    case serial, random
+}
+
 class MainController: UIViewController {
     @IBAction func goToMain(_ unwindSegue: UIStoryboardSegue) {}
     
     @IBOutlet var playButton: UIButton!
     @IBOutlet var resultButton: UIButton!
     @IBOutlet var resultLabel: UILabel!
-    
+    @IBOutlet weak var difficultyControl: UISegmentedControl!
+
     private let cornerRadius: CGFloat = 20
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +34,22 @@ class MainController: UIViewController {
         self.resultLabel.text = "Последний результат: \(record.score)"
     }
     
+    private var selectDifficulty: Difficulty {
+        switch self.difficultyControl.selectedSegmentIndex {
+        case 0:
+            return .serial
+        case 1:
+            return .random
+        default:
+            return .serial
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "playSegue":
             guard let destination = segue.destination as? GameController else { print("SomeError!"); return }
+            destination.difficulty = selectDifficulty
             destination.correctAnswersHandler = { [weak self] result in
                 self?.resultLabel.text = "Последний результат: \(result)"
             }

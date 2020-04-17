@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,6 +56,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZpH-NS-c7f">
+                                <rect key="frame" x="6" y="547" width="363" height="31"/>
+                                <color key="backgroundColor" red="0.30277535319999999" green="0.75884658100000002" blue="0.90873306990000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hCZ-ZN-xq8"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Упорядоченные вопросы"/>
+                                    <segment title="Случайные вопросы"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.023655014690512673" green="0.00084986149265522894" blue="0.43914917126838404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -64,10 +75,12 @@
                             <constraint firstItem="MKT-mb-fft" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="4Y2-6T-eqQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MKT-mb-fft" secondAttribute="trailing" constant="10" id="BlQ-nU-kdT"/>
                             <constraint firstItem="5vN-xX-d0Y" firstAttribute="top" secondItem="EWQ-bv-4md" secondAttribute="bottom" constant="30" id="CQ3-KS-A0w"/>
+                            <constraint firstItem="ZpH-NS-c7f" firstAttribute="top" secondItem="5vN-xX-d0Y" secondAttribute="bottom" constant="18" id="JdE-JM-EwL"/>
                             <constraint firstItem="EWQ-bv-4md" firstAttribute="top" secondItem="MKT-mb-fft" secondAttribute="bottom" constant="50" id="JjP-ch-U6V"/>
                             <constraint firstItem="MKT-mb-fft" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="XeU-Vb-vuv"/>
                             <constraint firstItem="5vN-xX-d0Y" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="awC-IP-lIJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8YX-tI-ZqJ" secondAttribute="bottom" constant="50" id="lqm-el-qZq"/>
+                            <constraint firstItem="ZpH-NS-c7f" firstAttribute="centerX" secondItem="5vN-xX-d0Y" secondAttribute="centerX" id="odG-y1-d0a"/>
                             <constraint firstItem="EWQ-bv-4md" firstAttribute="centerX" secondItem="MKT-mb-fft" secondAttribute="centerX" id="opF-ZT-u6r"/>
                             <constraint firstItem="8YX-tI-ZqJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qNS-cT-NsA"/>
                         </constraints>
@@ -75,6 +88,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="Zbx-u8-Rrx"/>
                     <connections>
+                        <outlet property="difficultyControl" destination="ZpH-NS-c7f" id="bRc-Du-R0v"/>
                         <outlet property="playButton" destination="EWQ-bv-4md" id="yle-5w-StA"/>
                         <outlet property="resultButton" destination="5vN-xX-d0Y" id="6ve-yX-wBg"/>
                         <outlet property="resultLabel" destination="8YX-tI-ZqJ" id="Bq6-FT-hBC"/>
