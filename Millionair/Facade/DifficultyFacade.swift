@@ -32,7 +32,7 @@ final class DifficultyFacade {
     }
     
     func getaArray(_ qstArray: [Question]) {
-        array = qstArray
+        array = createStrategy.createQuestions(qstArray)
     }
     
     func setGame() -> [Question] {

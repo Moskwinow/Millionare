@@ -40,21 +40,21 @@ class GameController: UIViewController  {
         answerThree.layer.cornerRadius = buttonCornerRadius
         answerFour.layer.cornerRadius = buttonCornerRadius
         facade = DifficultyFacade(difficulty: difficulty)
-        facade.getaArray(strategy.createQuestions(arrayOfQuestions))
+        facade.getaArray(arrayOfQuestions)
         changeQuestion()
     }
     
     @IBAction func checkAnswer(sender: UIButton) {
 
-           guard let currentQuestion = randomQuestionsArray.first(where: { qst -> Bool in
+           guard let currentQuestion = arrayOfQuestions.first(where: { qst -> Bool in
                return qst.question == question.text
            }) else {return}
            
            if sender.currentTitle == currentQuestion.correctAnswer{
-               randomQuestionsArray.removeAll { qst -> Bool in
+               arrayOfQuestions.removeAll { qst -> Bool in
                    return qst.question == question.text
             }
-            facade.getaArray(randomQuestionsArray)
+            facade.getaArray(arrayOfQuestions)
             self.correctAnswers += 1
             
                self.changeQuestion()

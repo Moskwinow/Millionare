@@ -15,11 +15,10 @@ protocol CreateStrategyProtocol {
 final class CreateRandomStrategy: CreateStrategyProtocol {
     
     func createQuestions(_ questionArray: [Question]) -> [Question] {
-        
+        var arr: [Question] = []
         let qst = questionArray.randomElement()
-        print([qst])
-        
-        return [qst!]
+        arr.append(qst!)
+        return arr
     }
     
 }
