@@ -184,6 +184,12 @@
                                     <constraint firstAttribute="height" constant="150" id="omC-vs-wzF"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sy-8q-BHs">
+                                <rect key="frame" x="166.5" y="313.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.003030372318" green="0.6904462576" blue="0.94779545070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -192,7 +198,9 @@
                             <constraint firstItem="kII-rN-drE" firstAttribute="top" secondItem="QZy-xT-cRg" secondAttribute="top" constant="30" id="Cbm-hU-c9i"/>
                             <constraint firstItem="QZy-xT-cRg" firstAttribute="trailing" secondItem="RvM-n9-E0T" secondAttribute="trailing" id="KlX-Wn-4yx"/>
                             <constraint firstAttribute="bottom" secondItem="RvM-n9-E0T" secondAttribute="bottom" constant="45" id="ORB-x5-Oty"/>
+                            <constraint firstItem="1sy-8q-BHs" firstAttribute="centerY" secondItem="Otg-4p-yWo" secondAttribute="centerY" id="Wua-i0-nIX"/>
                             <constraint firstItem="Xrq-Tr-ypo" firstAttribute="bottom" secondItem="RvM-n9-E0T" secondAttribute="top" constant="-10" id="dbr-YS-ZaY"/>
+                            <constraint firstItem="1sy-8q-BHs" firstAttribute="centerX" secondItem="Otg-4p-yWo" secondAttribute="centerX" id="oBZ-8Y-4o3"/>
                             <constraint firstItem="Xrq-Tr-ypo" firstAttribute="top" secondItem="kII-rN-drE" secondAttribute="bottom" constant="75" id="qhk-uJ-8cd"/>
                             <constraint firstItem="RvM-n9-E0T" firstAttribute="leading" secondItem="QZy-xT-cRg" secondAttribute="leading" id="rz9-e3-tSH"/>
                             <constraint firstItem="Xrq-Tr-ypo" firstAttribute="leading" secondItem="QZy-xT-cRg" secondAttribute="leading" id="td8-vL-Ona"/>
@@ -205,6 +213,7 @@
                         <outlet property="answerOne" destination="IfH-MC-XyB" id="zIC-Pe-gVe"/>
                         <outlet property="answerThree" destination="HQH-sN-f6n" id="k2Q-mN-gHk"/>
                         <outlet property="answerTwo" destination="4qy-hV-AMI" id="r2i-gJ-xPm"/>
+                        <outlet property="percentLabel" destination="1sy-8q-BHs" id="bur-LP-8AB"/>
                         <outlet property="question" destination="Xrq-Tr-ypo" id="DNk-AS-saa"/>
                     </connections>
                 </viewController>
