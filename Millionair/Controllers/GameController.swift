@@ -12,13 +12,12 @@ import UIKit
 
 class GameController: UIViewController  {
     
-    
-    
-    @IBOutlet var question: UILabel!
-    @IBOutlet var answerOne: UIButton!
-    @IBOutlet var answerTwo: UIButton!
-    @IBOutlet var answerThree: UIButton!
-    @IBOutlet var answerFour: UIButton!
+    @IBOutlet weak var question: UILabel!
+    @IBOutlet weak var answerOne: UIButton!
+    @IBOutlet weak var answerTwo: UIButton!
+    @IBOutlet weak var answerThree: UIButton!
+    @IBOutlet weak var answerFour: UIButton!
+    @IBOutlet weak var percentLabel: UILabel!
     
     var difficulty: Difficulty = .serial
     
@@ -30,7 +29,7 @@ class GameController: UIViewController  {
     var percent = 0
     var facade: DifficultyFacade!
     var arrayOfQuestions: [Question] = QuestionsBase.data()
-    
+    var resultPercent = Observable<String>("0")
     
 
     override func viewDidLoad() {
@@ -42,6 +41,10 @@ class GameController: UIViewController  {
         facade = DifficultyFacade(difficulty: difficulty)
         facade.getaArray(arrayOfQuestions)
         changeQuestion()
+        resultPercent.addObserver(percent as AnyObject, options: [.new, .initial]) { [weak self] (percent, _) in
+            guard let self = self else {return}
+            self.percentLabel.text = "Вы ответили на  \(percent)% вопросов"
+        }
     }
     
     @IBAction func checkAnswer(sender: UIButton) {
@@ -68,6 +71,9 @@ class GameController: UIViewController  {
        }
     
     private func changeQuestion() {
+        percent = 100 * correctAnswers / 10
+        resultPercent.value = "\(percent)"
+        
         
         randomQuestionsArray = facade.setGame()
         let qst = randomQuestionsArray
@@ -79,20 +85,15 @@ class GameController: UIViewController  {
         answerThree.setTitle(answers[2], for: .normal)
         answerFour.setTitle(answers[3], for: .normal)
         }
-        
-        
     }
-    
-    
-    
-    
+  
     private func saveAndExit() {
         
         guard self.correctAnswers > 0 else {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        percent = 100 * correctAnswers / 10
+        
         let record = GameSession (date: Date(), score: correctAnswers, percent: Int(percent))
         Game.shared.addRecord(record)
         self.correctAnswersHandler?(self.correctAnswers)

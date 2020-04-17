@@ -28,10 +28,10 @@ class MainController: UIViewController {
         playButton.layer.cornerRadius = cornerRadius
         resultButton.layer.cornerRadius = cornerRadius
         guard let record = Game.shared.records.last else {
-            self.resultLabel.isHidden = true
+//            self.resultLabel.isHidden = true
             return
         }
-        self.resultLabel.text = "Последний результат: \(record.score)"
+        self.resultLabel.text = "Последний результат верных ответов: \(record.score)"
     }
     
     private var selectDifficulty: Difficulty {
