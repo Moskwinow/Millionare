@@ -10,7 +10,9 @@ import UIKit
 
 
 
-class GameController: UIViewController {
+class GameController: UIViewController  {
+    
+    
     
     @IBOutlet var question: UILabel!
     @IBOutlet var answerOne: UIButton!
@@ -21,24 +23,15 @@ class GameController: UIViewController {
     var difficulty: Difficulty = .serial
     
     var randomQuestionsArray: [Question] = []
-    
+    var strategy: CreateStrategyProtocol!
     let buttonCornerRadius: CGFloat = 50
     var correctAnswers: Int = 0
     var correctAnswersHandler: ((Int) -> Void)?
     var percent = 0
-    
+    var facade: DifficultyFacade!
     var arrayOfQuestions: [Question] = QuestionsBase.data()
     
-    private var  createStrategy: CreateStrategyProtocol {
-        switch self.difficulty {
-        case .random:
-            
-            return CreateRandomStrategy()
-        case .serial:
-            return SerialCreateStrategy()
-        
-        }
-    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +39,8 @@ class GameController: UIViewController {
         answerTwo.layer.cornerRadius = buttonCornerRadius
         answerThree.layer.cornerRadius = buttonCornerRadius
         answerFour.layer.cornerRadius = buttonCornerRadius
+        facade = DifficultyFacade(difficulty: difficulty)
+        facade.getaArray(arrayOfQuestions)
         changeQuestion()
     }
     
@@ -58,9 +53,10 @@ class GameController: UIViewController {
            if sender.currentTitle == currentQuestion.correctAnswer{
                arrayOfQuestions.removeAll { qst -> Bool in
                    return qst.question == question.text
-               }
-               self.correctAnswers += 1
-           
+            }
+            facade.getaArray(arrayOfQuestions)
+            self.correctAnswers += 1
+            
                self.changeQuestion()
            } else {
                guard self.correctAnswers > 0 else {
@@ -71,12 +67,9 @@ class GameController: UIViewController {
            }
        }
     
-    
-    
-    
     private func changeQuestion() {
-        randomQuestionsArray = createStrategy.createQuestions(arrayOfQuestions)
         
+        randomQuestionsArray = facade.setGame()
         let qst = randomQuestionsArray
         self.question.text = qst[0].question
         if !randomQuestionsArray.isEmpty {
