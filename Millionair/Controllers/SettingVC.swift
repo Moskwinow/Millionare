@@ -8,25 +8,36 @@
 
 import UIKit
 
+
 class SettingVC: UIViewController {
+    
+    var builder = ViewBuilder()
+    var mainText: UILabel?
+    var mainBtn: UIButton?
+    var mainView: UIView?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        builder.setParams(mainView!, text: mainText!, btn: mainBtn!)
     }
     
+    
     @IBAction func newyorkButton(_ sender: UIButton) {
-            let builder = BuilderView(viewC: view)
-            builder.setViewColor(view: .dark)
-            
-            
+        builder.setViewColor(.new_york)
+        _ = builder.build()
         
     }
     
     @IBAction func lasangelesButton(_ sender: UIButton) {
+        builder.setViewColor(.los_angeles)
+        _ = builder.build()
+        
     }
     
     @IBAction func bostonButton(_ sender: UIButton) {
+        builder.setViewColor(.boston)
+        _ = builder.build()
+        
     }
 }

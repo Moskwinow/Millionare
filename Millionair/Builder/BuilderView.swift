@@ -10,29 +10,50 @@ import Foundation
 import UIKit
 
 enum ColorView {
-    case blue, dark, green
+    case boston, new_york, los_angeles
 }
 
-struct BuilderView {
+struct SettingView {
     
-    private(set) var viewC: UIView     
+    var view: UIView
+    var text: UILabel
+    var button: UIButton
+ 
+}
+
+class ViewBuilder{
     
-    func build() -> BuilderView {
-        return BuilderView(viewC: viewC)
+    private(set) var text: UILabel!
+    private(set) var btn: UIButton!
+    private(set) var view: UIView!
+
+    func setParams(_ setView: UIView, text setText: UILabel, btn setButton: UIButton) {
+        text = setText
+        view = setView
+        btn = setButton
     }
     
-    func setViewColor(view viewCC: ColorView) {
-        
-        switch viewCC {
-        case .blue:
-            return viewC.backgroundColor = #colorLiteral(red: 0.3027753532, green: 0.758846581, blue: 0.9087330699, alpha: 1)
-        case .dark:
-            return viewC.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
-        case.green:
-            return viewC.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+    
+    func setViewColor(_ state: ColorView) {
+        switch state {
+        case .boston:
+            btn.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            text.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        case .new_york:
+            
+            btn.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            text.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        case .los_angeles:
+            btn.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            text.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.9890961051, green: 0.8382902741, blue: 0.2005989552, alpha: 1)
         }
     }
     
-    
+    func build() -> SettingView {
+        return SettingView(view: view, text: text, button: btn)
+    }
     
 }

@@ -149,7 +149,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1Oo-fd-vUq" kind="presentation" id="oHN-IQ-0Tk"/>
+                                    <segue destination="1Oo-fd-vUq" kind="presentation" identifier="SettingSegue" id="oHN-IQ-0Tk"/>
                                 </connections>
                             </button>
                         </subviews>
