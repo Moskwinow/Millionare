@@ -25,10 +25,11 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         playButton.layer.cornerRadius = cornerRadius
         resultButton.layer.cornerRadius = cornerRadius
         guard let record = Game.shared.records.last else {
-//            self.resultLabel.isHidden = true
+
             return
         }
         self.resultLabel.text = "Последний результат верных ответов: \(record.score)"
