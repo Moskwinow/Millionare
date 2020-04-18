@@ -22,6 +22,8 @@
 		D4C773EB244A272700C9AEC2 /* CreateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */; };
 		D4C773EE244A441D00C9AEC2 /* DifficultyFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773ED244A441D00C9AEC2 /* DifficultyFacade.swift */; };
 		D4C773F1244A65F800C9AEC2 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773F0244A65F800C9AEC2 /* Observable.swift */; };
+		D4C773F4244ACBC600C9AEC2 /* BuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773F3244ACBC600C9AEC2 /* BuilderView.swift */; };
+		D4C773F6244AD52F00C9AEC2 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C773F5244AD52F00C9AEC2 /* SettingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		D4C773EA244A272700C9AEC2 /* CreateStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStrategy.swift; sourceTree = "<group>"; };
 		D4C773ED244A441D00C9AEC2 /* DifficultyFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyFacade.swift; sourceTree = "<group>"; };
 		D4C773F0244A65F800C9AEC2 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		D4C773F3244ACBC600C9AEC2 /* BuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderView.swift; sourceTree = "<group>"; };
+		D4C773F5244AD52F00C9AEC2 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		B421188D235C841A006C276F /* Millionair */ = {
 			isa = PBXGroup;
 			children = (
+				D4C773F2244ACBA100C9AEC2 /* Builder */,
 				D4C773EF244A65D500C9AEC2 /* Observer */,
 				D4C773EC244A437000C9AEC2 /* Facade */,
 				D4C773E9244A24BF00C9AEC2 /* Strategy */,
@@ -106,6 +111,7 @@
 				B4211890235C841A006C276F /* MainController.swift */,
 				B42118A2235C8F34006C276F /* GameController.swift */,
 				B42118A4235C94B3006C276F /* ResultsController.swift */,
+				D4C773F5244AD52F00C9AEC2 /* SettingVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -140,6 +146,14 @@
 				D4C773F0244A65F800C9AEC2 /* Observable.swift */,
 			);
 			path = Observer;
+			sourceTree = "<group>";
+		};
+		D4C773F2244ACBA100C9AEC2 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D4C773F3244ACBC600C9AEC2 /* BuilderView.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C773F4244ACBC600C9AEC2 /* BuilderView.swift in Sources */,
+				D4C773F6244AD52F00C9AEC2 /* SettingVC.swift in Sources */,
 				B42118A7235CBFDE006C276F /* Question.swift in Sources */,
 				B42118A9235DBB43006C276F /* Game.swift in Sources */,
 				D4C773EB244A272700C9AEC2 /* CreateStrategy.swift in Sources */,

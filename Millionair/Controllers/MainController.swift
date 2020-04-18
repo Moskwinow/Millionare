@@ -13,7 +13,7 @@ enum Difficulty {
 }
 
 class MainController: UIViewController {
-    @IBAction func goToMain(_ unwindSegue: UIStoryboardSegue) {}
+    
     
     @IBOutlet var playButton: UIButton!
     @IBOutlet var resultButton: UIButton!
@@ -22,18 +22,19 @@ class MainController: UIViewController {
 
     private let cornerRadius: CGFloat = 20
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         playButton.layer.cornerRadius = cornerRadius
         resultButton.layer.cornerRadius = cornerRadius
         guard let record = Game.shared.records.last else {
-//            self.resultLabel.isHidden = true
-            return
+
+        return
         }
         self.resultLabel.text = "Последний результат верных ответов: \(record.score)"
     }
-    
+    @IBAction func goToMain(_ unwindSegue: UIStoryboardSegue) {
+       
+    }
     private var selectDifficulty: Difficulty {
         switch self.difficultyControl.selectedSegmentIndex {
         case 0:
@@ -52,6 +53,16 @@ class MainController: UIViewController {
             destination.difficulty = selectDifficulty
             destination.correctAnswersHandler = { [weak self] result in
                 self?.resultLabel.text = "Последний результат: \(result)"
+            }
+        case "SettingSegue":
+            let destination = segue.destination as! SettingVC
+            if #available(iOS 13.0, *) {
+                destination.modalPresentationStyle = .automatic
+                destination.mainText = resultLabel
+                destination.mainBtn = playButton
+                destination.mainView = view
+            } else {
+                destination.modalPresentationStyle = .pageSheet
             }
         default:
             break
