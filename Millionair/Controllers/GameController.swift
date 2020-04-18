@@ -89,10 +89,6 @@ class GameController: UIViewController  {
   
     private func saveAndExit() {
         resultPercent.removeObserver(self)
-<<<<<<< HEAD
-=======
-        
->>>>>>> feature/builder
         guard self.correctAnswers > 0 else {
             self.dismiss(animated: true, completion: nil)
             return
